@@ -1,0 +1,495 @@
+---
+title: "A Framework for Teaching NCEA Level 1 Numeracy to Adult Learners"
+author: "Source Document Conversion"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: yes
+    theme: united
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(knitr)
+```
+
+# Introduction: Deconstructing the NCEA Numeracy Co-requisite for Adult Education
+
+The successful delivery of numeracy education to adults in Aotearoa New Zealand requires a sophisticated understanding of the national qualifications landscape. To design effective lesson and unit plans for the National Certificate of Educational Achievement (NCEA) Level 1 Numeracy co-requisite, educators must navigate and integrate two distinct yet complementary frameworks. The New Zealand Qualifications Authority (NZQA) sets the assessment standards that learners must meet, while the Tertiary Education Commission (TEC) provides the pedagogical frameworks and tools that guide effective teaching and learning for adults. This report provides an exhaustive breakdown of the NCEA Level 1 Numeracy standard, synthesising these frameworks into a coherent structure that can be directly applied to curriculum development for adult learners.
+
+## The 'What' and the 'How': Differentiating NZQA and TEC Frameworks
+
+A clear understanding of the roles of NZQA and the TEC is the essential first step for any adult numeracy programme coordinator. These two bodies provide the 'what' and the 'how' of numeracy education.
+
+### NZQA's Role (The 'What')
+
+NZQA is responsible for the national qualifications framework and defines the standards that learners are assessed against. For the NCEA numeracy requirement, the central document is **Unit Standard 32406: Apply mathematics and statistics in a range of everyday situations** [1]. Achieving this 10-credit standard is mandatory for any student wishing to be awarded an NCEA certificate at any level [4]. Assessment for this standard is conducted through a national Common Assessment Activity (CAA), which is an external assessment administered by the provider but developed and marked by NZQA [5]. The content and processes assessed in the CAA are defined by the **NCEA Numeracy Learning Matrix** [3]. This matrix outlines the key mathematical and statistical ideas that learners must be competent with.
+
+### TEC's Role (The 'How')
+
+The TEC focuses on the quality and effectiveness of tertiary education, including adult foundational education. It provides the pedagogical architecture for teaching adult learners. The cornerstone of this architecture is the **Learning Progressions for Adult Numeracy (LPAN)** [9]. The LPAN is not a curriculum but a detailed framework describing the developmental steps an adult learner takes as they build numeracy expertise, from low (Step 1) to high (Step 6) [11]. To support this, the TEC also provides the primary diagnostic tool, the **Literacy and Numeracy for Adults Assessment Tool (LNAAT)** [11]. The LNAAT is an adaptive online assessment designed to identify a learner's current capabilities and place them on the LPAN steps, providing a clear starting point for targeted teaching [11].
+
+## The Crucial Link: NCEA Level 1 and LPAN Step 5
+
+The connection between the NZQA assessment standard and the TEC pedagogical framework is not merely implied; it is explicit and forms the lynchpin of effective programme design. The Guidance Information within Unit Standard 32406 states that the standard corresponds to *"upper Step 5"* of the Learning Progressions for Adult Numeracy [3].
+
+This direct link is of paramount importance. It signals that the detailed descriptors within the LPAN are the most authoritative guide available for understanding the specific skills, strategies, and depth of knowledge required to meet the NCEA standard. While the NZQA Learning Matrix provides the high-level content areas, the LPAN provides the granular detail of what a learner "knows and can do" at the target level [9]. For example, when the Learning Matrix requires learners to "solve problems that require operations on numbers," the LPAN at Step 5 specifies that this involves using flexible mental strategies like partitioning and compensation, not just rote application of algorithms [9]. This connection transforms the LPAN from a helpful resource into an essential guide for lesson planning.
+
+## The Three Process Ideas: The Lens for All Numeracy Teaching
+
+The NCEA Numeracy Learning Matrix is built on a foundation of three overarching "Process Ideas" [7]. These are not discrete topics to be taught in isolation; rather, they are the cognitive actions that learners must demonstrate across all content areas. They represent the active, thinking component of being numerate. The three Process Ideas are [8]:
+
+- **Formulate:** Learners must be able to look at a real-world situation, determine the mathematical or statistical information needed, and formulate a plan to solve the problem. This involves selecting appropriate tools, representations (like graphs or tables), and strategies.
+- **Use:** Learners must be able to apply mathematical and statistical concepts and approaches to meet the demands of the situation. This includes carrying out calculations, using tools (including calculators), and applying an appropriate degree of precision.
+- **Explain:** Learners must be able to explain the reasonableness of their answers and methods. This is a critical higher-order skill that involves interpreting solutions in context, justifying choices, critiquing statements based on data, and communicating mathematical ideas clearly.
+
+The ability to "explain the reasonableness" is a particularly strong indicator of deep understanding and a departure from traditional assessments that may only have focused on the correctness of a final answer. Every unit and lesson plan should be designed to give learners opportunities to practice and demonstrate all three of these processes.
+
+## Context is King: The Real-World Mandate
+
+A non-negotiable principle of the NCEA numeracy standard is the application of skills in authentic contexts. The standard requires the application of mathematics and statistics in "a range of everyday situations" [1]. Assessment specifications further clarify that these situations are "relevant to everyday life, such as home, whānau, workplace, community, personal activities, and projects" [5]. This explicitly mandates an embedded, contextual approach to teaching, moving away from abstract, decontextualised worksheets. The evidence from older, related standards like US26623 reinforces this, with all assessment activities set in scenarios like a "Rugby Fundraiser" or preparing a fruit cake recipe [15]. This approach not only makes learning more relevant and engaging for adults but also directly prepares them for the nature of the final assessment.
+
+An effective adult numeracy programme, therefore, does not treat NZQA and TEC frameworks as separate options but integrates them into a single, coherent system. The NZQA Learning Matrix defines the destination (the required content), while the TEC's Learning Progressions provide the detailed roadmap for the journey.
+
+```{r table1, echo=FALSE}
+framework_data <- data.frame(
+  `Governing Framework` = c("NCEA Co-requisite Standard", "Assessment Framework", "", "", "Pedagogical Framework", "", "Diagnostic Tool"),
+  `Key Document/Concept` = c("Unit Standard 32406", "NCEA Numeracy Learning Matrix", "Process Ideas", "Content Ideas", "Learning Progressions for Adult Numeracy (LPAN)", "Strands", "Literacy and Numeracy for Adults Assessment Tool (LNAAT)"),
+  `Core Purpose / Description` = c("The 10-credit standard learners must achieve. Assessed via a Common Assessment Activity (CAA).", "Defines the scope of the assessment, weaving together Process and Content Ideas.", "The cognitive actions learners must perform: Formulate, Use, Explain.", "The seven key mathematical and statistical domains that are assessed.", "Describes the developmental steps (1-6) of adult numeracy skill acquisition. Provides the 'how-to' for teaching.", "The three main organising strands of the LPAN: Make Sense of Number, Reason Statistically, Measure and Interpret Shape and Space.", "An adaptive assessment that identifies a learner's starting point on the LPAN to inform teaching."),
+  `Key Reference(s)` = c("1", "7", "8", "7", "9", "9", "11"),
+  check.names = FALSE
+)
+kable(framework_data, caption = "Table 1: NCEA Numeracy Frameworks at a Glance")
+```
+
+---
+
+# Section 1: Core Content Area: Operations on Numbers
+
+This section addresses the first and most substantial Content Idea from the Numeracy Learning Matrix: **"Fluently and flexibly solve problems that require operations on numbers, understanding the relative size of those numbers, and making sense of the answer in context"** [7]. This domain is the bedrock of numeracy and corresponds directly to the LPAN strand "Make Sense of Number to Solve Problems" [9]. The emphasis on fluency and flexibility signals a move beyond rote calculation towards strategic and adaptive problem-solving. The skills required are not merely about getting the right answer but about understanding the relationships between numbers and choosing efficient methods to work with them.
+
+## 1.1 Foundational Number Knowledge
+
+While the NCEA standard is benchmarked at LPAN Step 5, many adult learners will have gaps in the foundational knowledge outlined in earlier steps. It is impossible to build Step 5 strategies on a weak foundation, so diagnostic assessment and targeted teaching of these prerequisite skills are essential. These are covered by the Number Sequence, Place Value, and Number Facts progressions in the LPAN [9].
+
+- **Number Sequence:** At Step 5, learners must know the forward and backward sequences of integers (positive and negative numbers), fractions, decimals, and percentages from any given number [9]. This includes being able to correctly order a mixed set of numbers, such as -3, 0.5, 3/4, and 120%. This skill is fundamental to understanding the relative size of numbers.
+- **Place Value:** A robust understanding of place value is critical. By Step 4 of the LPAN, learners should know how many tenths, hundredths, and thousandths are in any number and understand what happens when a number is multiplied or divided by powers of 10 (e.g., 10, 100, 1000) [9]. It is noteworthy that assessment exemplars for the older standard US26623 explicitly state that division by 10, 100, or 1000 does not, on its own, provide sufficient evidence of division competency at Step 5 [15]. This implies that such calculations are considered foundational knowledge that underpins more complex problem-solving.
+- **Number Facts:** Automaticity with key number facts frees up cognitive load for higher-order problem-solving. At Step 5 of the LPAN, this includes knowing the common factors of numbers up to 100, common fraction-decimal-percentage conversions (e.g., halves, thirds, quarters, fifths, and tenths), and the convention for exponents (e.g., knowing that $5^2$ means 5x5) [9].
+
+## 1.2 Additive and Subtractive Reasoning
+
+This area corresponds to the **Additive Strategies** progression in the LPAN. The core requirement at NCEA Level 1 is a significant leap from simply using a standard written algorithm. The focus is on mental flexibility and strategic thinking. The core skill, as defined at LPAN Step 5, is to **"Solve addition and subtraction problems involving decimals and integers using partitioning strategies (e.g., tidy numbers with compensation, place value partitioning, reversibility), or justify the reasonableness of calculator/algorithm answers"** [9]. This was a required skill in exemplars for the previous unit standard, US26623, demonstrating its long-standing importance [15]. This means teaching must explicitly focus on these flexible strategies:
+
+- **Tidy Numbers with Compensation:** Solving a problem like $\$4.70 + \$3.80$ by thinking of it as $\$4.70 + \$4.00 - \$0.20$. This strategy involves rounding one number to a 'tidy' number (like a whole dollar or a multiple of ten) and then adjusting the answer.
+- **Place Value Partitioning:** Solving a problem like $\$36.50 - \$12.20$ by breaking the numbers down into their place value components: $(\$30 - \$10) + (\$6 - \$2) + (\$0.50 - \$0.20)$. This demonstrates a deep understanding of how numbers are constructed.
+- **Reversibility:** Understanding the inverse relationship between addition and subtraction. For example, solving $\$52 - ? = \$29$ by reframing it as an addition problem: $\$29 + ? = \$52$. This is a powerful problem-solving technique.
+
+## 1.3 Multiplicative and Divisional Reasoning
+
+This area corresponds to the **Multiplicative Strategies** progression in the LPAN. As with addition and subtraction, the emphasis is on moving beyond standard algorithms to flexible, sense-making strategies. The core skill at LPAN Step 5 is to **"Solve multi-digit whole number multiplication and division problems using partitioning strategies... or justify the reasonableness of calculator/algorithm answers"** [9]. The key is the use of strategies that maintain the meaning of the numbers, such as:
+
+- **Proportional Adjustment (or Doubling and Halving):** Solving a problem like $24 \times 25$ by transforming it into an equivalent, easier problem like $12 \times 50$ or $6 \times 100$.
+- **Place Value Partitioning (often visualized as an Area Model):** Solving $36 \times 15$ by breaking it into $(30 \times 10) + (30 \times 5) + (6 \times 10) + (6 \times 5)$. This is a robust strategy that works for whole numbers and decimals.
+- **Using Known Facts:** Deriving the answer to $18 \times 5$ from the known fact that $20 \times 5 = 100$, and then subtracting $2 \times 5$.
+
+A crucial consideration for tutors is the required level of complexity. The assessment exemplars for the older standard, US26623, provide clear guidance that problems involving single-digit multipliers or divisors are generally not considered complex enough to meet the Step 5 standard [15]. This indicates that teaching and practice must focus on multi-digit problems to adequately prepare learners.
+
+The evolution from older standards to the current framework reveals a fundamental change in the definition of numeracy. Where older standards might have been satisfied by evidence of a correct calculation, the new framework, through its Process Ideas and the LPAN's focus on "strategies" and "justifying reasonableness," demands evidence of the learner's cognitive process. The tutor's role has expanded from teaching how to calculate to teaching why a method works and how to know if an answer is sensible. Lesson plans must therefore incorporate activities that promote estimation, verbal explanation of strategies, and comparison of different solution pathways.
+
+## 1.4 Proportional Reasoning in Practice
+
+This is one of the most critical and widely applicable areas of numeracy for adults, covering fractions, decimals, and percentages. It primarily draws on the **Proportional Reasoning Strategies** progression and the Step 6 skills of the **Multiplicative Strategies** progression in the LPAN [9]. The NCEA Level 1 standard requires skills that straddle several LPAN steps. Learners must be able to **"solve multiplication or division problems with decimals, fractions, and percentages using partitioning strategies"** (Multiplicative, Step 6) and **"use multiplication and division strategies to solve problems involving proportions, ratios, and rates"** (Proportional Reasoning, Step 4) [9]. Teaching must focus on practical applications, such as:
+
+- **Calculating with Percentages:** Finding a percentage of a quantity (e.g., calculating 15% GST on a price), expressing one quantity as a percentage of another, and calculating percentage increases or decreases (e.g., for a sale discount or a pay rise).
+- **Calculating with Fractions:** Finding a fraction of a quantity (e.g., calculating 3/4 of a 60-litre fuel tank) and solving problems that involve adding, subtracting, or comparing fractions in a real context.
+- **Connecting Representations:** Fluently moving between fractions, decimals, and percentages (e.g., knowing that a 25% discount is the same as 1/4 off, or 0.25 times the price).
+- **Estimation and Reasonableness:** Using a calculator for complex calculations but being able to perform a quick mental check. For example, when calculating 17% of $82, a learner should be able to reason that 10% is $8.20 and 20% is $16.40, so the answer must lie between those two values [9]. This directly addresses the "Explain reasonableness" Process Idea.
+
+```{r table1-1, echo=FALSE}
+problems_data <- data.frame(
+  `Problem Description` = c(
+    "Your pay slip shows a gross weekly income of $845.60. Your deductions are PAYE $142.88, ACC $11.84, and Kiwisaver $25.37. What is your net pay? Explain how you could quickly estimate the answer to check your calculation.",
+    "A job requires 35 lengths of timber, each 2.4 metres long. The timber is sold in 4.8-metre lengths. How many 4.8-metre lengths do you need to buy? How much timber will be wasted?",
+    "You are quoted $4,500 + GST for a car repair. GST is 15%. What is the total cost? How could you calculate this mentally?",
+    "A recipe that serves 6 people requires 3/4 cup of flour. You need to adapt the recipe to serve 8 people. How much flour do you need?",
+    "A petrol tank holds 60 litres. At the start of a trip, it is full. At the end, the gauge shows it is 1/4 full. Petrol costs $2.899 per litre. What was the cost of the petrol used?"
+  ),
+  Context = c("Workplace", "Workplace / DIY", "Personal Finance", "Home / Hospitality", "Personal Finance"),
+  `Key Skills` = c("Decimal subtraction, Estimation", "Multiplication with decimals, Division, Subtraction", "Percentage of an amount, Addition", "Proportional reasoning with fractions", "Fractions of a quantity, Multiplication with decimals, Estimation"),
+  `Potential Strategy to Elicit` = c(
+    "Place value partitioning for subtraction; Rounding to nearest $10 for estimation.",
+    "Using doubling (2 x 2.4 = 4.8) to see that two required lengths come from one purchased length. Proportional reasoning.",
+    "Partitioning 15% into 10% and 5%. Find 10% of $4500 ($450), then halve that for 5% ($225), and add them together ($675).",
+    "Finding the amount for one person (3/4 ÷ 6) and multiplying by 8. Or, recognising 8 is 6 plus one-third of 6, so you need 3/4 plus one-third of 3/4.",
+    "Calculating 3/4 of 60 litres. Multiplying the result by a decimal price. Estimating by rounding the price to $2.90 or $3.00."
+  ),
+  check.names = FALSE
+)
+kable(problems_data, caption = "Table 1.1: Contextualised Problems for Operations on Numbers")
+```
+
+---
+
+# Section 2: Core Content Area: Mathematical Relationships
+
+This section addresses the second Content Idea from the Numeracy Learning Matrix: **"Recognise and work with mathematical relationships"** [7]. This domain represents a significant step beyond performing discrete calculations. It requires learners to identify, describe, and use the underlying rules, patterns, and connections that govern how quantities change in relation to one another. This area serves as a critical bridge between concrete arithmetic, often termed "numeracy," and more abstract relational thinking, which is a hallmark of formal "mathematics." The inclusion of this content area in the numeracy standard signals that being numerate in the NCEA context involves the ability to think abstractly about systems, not just concretely about individual numbers.
+
+## 2.1 Recognising and Working with Patterns and Relationships
+
+This subsection involves the ability to analyse information, often presented in tables or sequences, to find a consistent pattern or rule. Once the rule is identified, it can be used to make predictions or find missing values. The skills required here are foundational to algebraic thinking and are explicitly mentioned in the Level 1 Mathematics and Statistics achievement standard 91947, which expects learners to be able to "relate graphs, tables, equations, and patterns" [17]. For adult learners, this can be taught through highly contextualised examples:
+
+- **Analysing a payment plan:** A hire purchase agreement might have a fixed deposit and then a constant weekly payment. Learners can create a table showing the total amount paid after 1, 2, 3, and 4 weeks, identify the "add $X each week" pattern, and then use this rule to calculate the total cost after 52 weeks without having to add the weekly payment 52 times.
+- **Investigating savings goals:** A person saves $50 in the first month, $65 in the second, $80 in the third, and so on. Learners can be asked to describe the pattern ("the amount saved increases by $15 each month") and predict how much will be saved in the sixth month.
+
+## 2.2 Solving Problems with Ratios, Rates, and Proportions
+
+This is a direct and practical application of the **Proportional Reasoning Strategies** progression from the LPAN, specifically at Step 4, which involves using multiplication and division to solve problems with proportions, ratios, and rates [9]. These concepts are ubiquitous in everyday adult life.
+
+- **Ratios:** This involves comparing quantities of the same unit. Teaching should focus on real-world tasks like mixing ingredients (e.g., a concrete mix of 1 part cement to 2 parts sand to 3 parts gravel), scaling recipes up or down, or sharing a cost according to a given ratio (e.g., splitting a lotto win).
+- **Rates:** This involves comparing two quantities with different units. This is a concept adults encounter constantly. Examples include pay rates ($/hour), fuel efficiency (litres/100km or km/litre), and unit pricing at the supermarket (cents/kg or cents/100g). A key skill is using rates to make informed comparisons, such as determining which box of cereal is better value for money by calculating the price per 100 grams for each [9].
+- **Direct and Inverse Proportion:** This involves understanding how one quantity changes as another changes.
+    - **Direct Proportion:** As one quantity increases, the other increases at the same rate (e.g., the more hours you work, the more you get paid).
+    - **Inverse Proportion:** As one quantity increases, the other decreases proportionally (e.g., if you double the number of people painting a fence, it should take half the time).
+
+## 2.3 Using and Interpreting Formulas in Context
+
+This skill focuses on the application of given formulas, not on the algebraic skill of rearranging them. The Level 1 Mathematics and Statistics assessment explicitly states that a formula sheet will be provided, reinforcing that the emphasis is on correct substitution and interpretation, not memorisation [17]. For adult numeracy, this means providing learners with formulas that are relevant to their lives and work, and giving them practice in using them correctly. This requires learners to:
+
+1.  Identify the correct formula for the task.
+2.  Understand what each variable in the formula represents.
+3.  Substitute the correct values from the problem into the formula.
+4.  Perform the calculation (using a calculator where appropriate).
+5.  Interpret the result in the context of the original problem, including the correct units.
+
+Contextual examples include using the formula for the area of a circle ($A = \pi r^2$) to find the area of a circular garden bed, or using a formula to calculate the body mass index (BMI) of a person given their height and weight.
+
+```{r table2-2, echo=FALSE}
+relationships_data <- data.frame(
+  `Problem Description` = c(
+    "A mobile phone plan costs $25 a month, which includes 100 minutes of calls. Extra calls are charged at 45 cents per minute. Create a table showing the total cost for 100, 110, and 120 minutes. What is the rule connecting the number of extra minutes to the extra cost?",
+    "A cleaning solution must be mixed in a ratio of 1 part concentrate to 10 parts water. If you need to make a total of 5.5 litres of solution, how much concentrate and how much water do you need?",
+    "A car travels 240 km on 18 litres of fuel. What is the car's fuel consumption rate in litres per 100 km? If fuel costs $2.95 per litre, what is the cost per km?",
+    "The formula for converting temperature from Celsius (C) to Fahrenheit (F) is F = 1.8 * C + 32. If the forecast is for 15°C, what is the temperature in Fahrenheit?",
+    "It takes 3 painters 8 days to paint a house. Assuming they all work at the same rate, how long would it take 4 painters to do the same job?"
+  ),
+  Context = c("Personal Finance", "Workplace / Home", "Personal Finance / Travel", "Everyday Life", "Workplace / Trades"),
+  `Key Skills` = c("Rates, Creating a table, Identifying a linear relationship", "Ratios, Proportions", "Rates, Proportions", "Using a formula", "Inverse proportion"),
+  `Potential Relationship to Identify` = c(
+    "Cost = 25 + (Extra Minutes * $0.45)",
+    "The total has 11 parts. Each part is 5.5 / 11 = 0.5 litres. So, 0.5L concentrate and 5L water.",
+    "Calculate litres per km (18/240), then scale up to 100km. Calculate cost per litre and then use fuel consumption to find cost per km.",
+    "Correct substitution of C=15 into the formula and calculation of F.",
+    "The total work is 3 * 8 = 24 'painter-days'. With 4 painters, the time taken is 24 / 4 = 6 days."
+  ),
+  check.names = FALSE
+)
+kable(relationships_data, caption = "Table 2.2: Contextualised Problems for Mathematical Relationships")
+```
+
+---
+
+# Section 3: Core Content Area: Measurement
+
+This section addresses Content Idea 5: **"Use numbers and units to measure and express attributes of objects and events as quantities, with a degree of precision appropriate to the context"** [7]. This domain is highly practical and directly applicable to a vast range of adult activities, from DIY projects and cooking to understanding workplace specifications and personal health. It maps to the **Measurement** progression within the LPAN strand "Measure and Interpret Shape and Space" [9]. A key element that distinguishes this area at NCEA Level 1 is the explicit requirement to consider the context when deciding on the necessary level of accuracy.
+
+## 3.1 Systems, Units, and Conversions
+
+A fundamental aspect of measurement is understanding the systems and units used. In Aotearoa New Zealand, this primarily involves the metric system, but learners also need to be familiar with other common measurement systems, particularly for time.
+
+- **Metric System:** Learners must be comfortable with the standard units for length (millimetres, centimetres, metres, kilometres), mass (grams, kilograms), and volume/capacity (millilitres, litres). A key skill, outlined in Step 4 of the LPAN Measurement progression, is carrying out simple unit conversions within the system (e.g., knowing that 1.5 kg is 1500 g, or 250 ml is 0.25 L) [9].
+- **Time:** Learners need to be able to work fluently with time, including converting between 12-hour and 24-hour clocks, calculating time durations (e.g., the length of a work shift that crosses midnight), and understanding units from seconds through to years.
+- **Temperature:** This involves reading temperatures in degrees Celsius and interpreting them in familiar contexts (e.g., weather forecasts, cooking temperatures, body temperature).
+
+## 3.2 Calculating Perimeter, Area, and Volume
+
+This involves applying measurement formulas to find the size of 2D and 3D shapes. These skills are essential in many vocational contexts, such as building and construction, landscaping, and manufacturing, as well as for personal projects. The LPAN Measurement progression at Step 5 requires learners to be able to "select and use sensible units, tools, and/or formulas to measure surface areas and volumes of prisms (including cylinders)" [9]. This is also a component of the formal Level 1 Mathematics and Statistics curriculum [17].
+
+- **Perimeter:** Calculating the distance around the outside of a 2D shape. Contexts include fencing a garden, putting skirting board in a room, or framing a picture.
+- **Area:** Calculating the amount of surface a 2D shape covers. Contexts include buying carpet or paint, determining the size of a section of land, or calculating the surface area of an object to be painted. Learners should be able to work with rectangles, triangles, circles, and composite shapes made from these.
+- **Volume:** Calculating the amount of space a 3D object occupies. Contexts include finding the amount of concrete needed for a path, the capacity of a water tank, or the volume of soil for a planter box.
+
+## 3.3 Reading Scales and Ensuring Appropriate Precision
+
+This skill involves accurately interpreting measurements from a variety of analogue and digital instruments, such as rulers, measuring jugs, kitchen scales, and temperature gauges. This aligns with Step 4 of the LPAN Measurement progression, which includes selecting and using tools to measure to an appropriate precision [9]. The phrase **"to a degree of precision appropriate to the context"** is a vital concept that must be explicitly taught. It requires learners to make a judgment call based on the real-world implications of the measurement. Tutors should contrast scenarios to highlight this:
+
+- **High Precision Required:** Measuring a dose of medicine, cutting a component for a machine, or mixing chemicals for a scientific process. An error of a few millimetres or millilitres could have serious consequences.
+- **Low Precision Acceptable:** Estimating the amount of flour for a sauce, measuring the length of a garden for a rough sketch, or estimating the travel time for a familiar journey. Being "close enough" is often sufficient.
+
+Teaching this concept moves measurement from a purely mechanical task to a reasoning activity, directly addressing the "Formulate" and "Explain" Process Ideas.
+
+```{r table2-3, echo=FALSE}
+measurement_data <- data.frame(
+  `Problem Description` = c(
+    "You need to paint the four walls of a rectangular room that is 4.2m long, 3.5m wide, and 2.4m high. A 4-litre can of paint covers 40 square metres. How many cans of paint do you need?",
+    "A cylindrical water tank has a radius of 1.5m and a height of 2m. What is its volume in cubic metres? If 1 cubic metre holds 1000 litres, what is the capacity of the tank in litres? (Formula: V = $\\pi r^2 h$)",
+    "Your work shift starts at 22:30 on Tuesday and ends at 06:15 on Wednesday. You get one unpaid 30-minute break. How many hours and minutes will you be paid for?",
+    "A patient's temperature is 38.9°C. A normal body temperature is around 37°C. The instructions on a medicine say to give a dose if the temperature is 'high'. Would you administer the medicine? Explain your reasoning.",
+    "You are pouring concrete for a rectangular path that is 10 metres long, 1.2 metres wide, and 100mm deep. Concrete is ordered in cubic metres. How much concrete should you order?"
+  ),
+  Context = c("DIY / Trades", "Home / Rural", "Workplace", "Health / Personal Care", "DIY / Trades"),
+  `Key Skills` = c("Area of rectangles, Addition, Division", "Volume of a cylinder, Unit conversion", "Time calculation (24-hour clock), Subtraction", "Reading a scale (thermometer), Interpretation", "Volume of a rectangular prism, Unit conversion (mm to m)"),
+  `Focus on Precision` = c(
+    "Moderate precision needed. You must buy whole cans, so the final answer must be rounded up.",
+    "High precision in calculation is useful, but the final answer might be rounded to a sensible number like the nearest 100 litres.",
+    "High precision required for payroll. Answers must be exact.",
+    "The number itself is precise, but the decision is based on interpreting that number against a benchmark ('normal') and a qualitative term ('high').",
+    "Low precision in the final order. It is better to order slightly more (e.g., round up to the nearest 0.1 cubic metre) to ensure you have enough."
+  ),
+  check.names = FALSE
+)
+kable(measurement_data, caption = "Table 2.3: Contextualised Problems for Measurement")
+```
+
+---
+
+# Section 4: Core Content Area: Space, Shape, Location, and Navigation
+
+This section integrates two closely related Content Ideas from the Numeracy Learning Matrix: **"Understand and use the spatial properties and representations of objects"** (Idea 3) and **"Understand and use systems for location and navigation"** (Idea 4) [7]. Together, these domains address the ability to interpret and reason with visual and spatial information. This moves numeracy beyond the manipulation of numbers on a page into the realm of understanding the world in two and three dimensions. These skills map to the **Shapes and Transformations** and **Location** progressions within the LPAN strand "Measure and Interpret Shape and Space" [9]. The inclusion of this content highlights that NCEA numeracy encompasses visual literacy and spatial reasoning, which require different teaching strategies, such as hands-on activities, drawing, and the use of physical models or manipulatives.
+
+## 4.1 Interpreting and Using Maps, Plans, and Diagrams
+
+This is a highly practical skill set that enables adults to navigate their environment and interpret technical information. It aligns with the LPAN **Location** progression, which at Step 4 includes communicating and interpreting locations, directions, and distances using bearings, grid references, and scales [9].
+
+- **Maps:** This includes reading street maps, topographical maps, and digital maps (e.g., Google Maps). Key skills involve understanding symbols and keys, using a scale to estimate distances, following directions (including compass directions like North, South, East, West), and using grid references to pinpoint a location.
+- **Plans and Diagrams:** This involves interpreting 2D representations of 3D objects. Examples are ubiquitous in adult life and include:
+    - **Floor plans:** Reading a house plan to understand the layout, room dimensions, and features.
+    - **Assembly diagrams:** Following step-by-step visual instructions to assemble flat-pack furniture or equipment.
+    - **Site plans:** Understanding the layout of a worksite or event venue.
+
+## 4.2 Properties of 2D and 3D Shapes
+
+This subsection focuses on recognising and describing the features of common shapes, a skill that underpins many practical tasks in design, construction, and manufacturing. It corresponds to the **Shapes and Transformations** progression in the LPAN, which at Steps 4 and 5 involves defining shapes by their spatial features and creating 2D representations of 3D objects [9].
+
+- **2D Shapes:** Identifying and naming common polygons (triangles, quadrilaterals, etc.) and circles, and describing their properties (e.g., number of sides, right angles, parallel lines).
+- **3D Shapes:** Identifying and naming common solids like cubes, prisms, cylinders, pyramids, and spheres. A key skill is understanding the relationship between 3D objects and their 2D "nets" (the flat pattern that can be folded to make the shape).
+- **Visualisation and Views:** A more advanced skill is being able to visualise a 3D object from different perspectives and draw or interpret its 2D views (e.g., a top view, front view, and side view). This is a foundational skill in technical drawing and design.
+
+```{r table2-4, echo=FALSE}
+space_data <- data.frame(
+  `Problem Description` = c(
+    "Using a provided city map with a grid reference system and a scale bar, describe the route you would take to walk from the train station at C4 to the museum at F7. Estimate the total distance of your walk.",
+    "You are given a simple floor plan of a one-bedroom apartment. Identify the room with the largest floor area. If the scale is 1:100, what are the real-life dimensions of the bedroom?",
+    "Look at the assembly diagram for a simple bookshelf. Which pieces (labelled A, B, C, etc.) form the sides, and which form the shelves? In what order should the pieces be assembled according to the diagrams?",
+    "A company needs to pack spherical balls into a rectangular box. The box dimensions are 30cm x 20cm x 10cm. The balls have a diameter of 10cm. What is the maximum number of balls that can fit in the box? Draw a diagram to show how they would be arranged.",
+    "You are given the top, front, and side views of a simple 3D object made from cubes. Sketch the 3D object."
+  ),
+  Context = c("Travel / Everyday Life", "Housing / DIY", "DIY / Home", "Workplace / Logistics", "Technical / Puzzles"),
+  `Key Skills` = c("Using grid references, Following directions, Using a map scale", "Interpreting a plan, Using a scale, Area comparison", "Following visual instructions, Interpreting diagrams, Sequencing", "Spatial reasoning, 3D visualisation, Simple division", "Spatial visualisation, Reconstructing 3D from 2D views"),
+  `Spatial/Visual Focus` = c(
+    "Route planning, interpreting map symbols, distance estimation.",
+    "Reading and understanding a 2D representation of a 3D space, applying a scale factor.",
+    "Deconstructing a task into sequential visual steps, matching 2D diagrams to 3D components.",
+    "Visualising how 3D objects pack into a container, understanding the relationship between diameter and packing density.",
+    "Mental manipulation of shapes, understanding orthographic projection."
+  ),
+  check.names = FALSE
+)
+kable(space_data, caption = "Table 2.4: Contextualised Problems for Space, Shape, Location, and Navigation")
+```
+
+---
+
+# Section 5: Core Content Area: Statistics and Data
+
+This section addresses Content Idea 6: **"Understand and reason with statistics and data"** [7]. In the modern world, being numerate is inseparable from being statistically literate. Adults are constantly bombarded with data, graphs, and statistical claims in the news, on social media, in advertising, and in the workplace. This content area, which maps to the LPAN strand **"Reason Statistically"** [9], is therefore arguably one of the most critical for engaged and critical citizenship. The focus is less on the manual calculation of complex statistics and more on the interpretation, communication, and critical evaluation of statistical information presented by others.
+
+## 5.1 Collecting, Organising, and Displaying Data
+
+This covers the foundational skills of statistical investigation. While learners being assessed for NCEA are more likely to be interpreting data than collecting it, they need to understand the process to be critical consumers. This aligns with the **Preparing Data for Analysis** progression in the LPAN, which at Step 3 includes organising and representing data using tables and various graph types [9]. Learners should be able to read, interpret, and extract specific information from:
+
+- Tables and Tally Charts: Simple and two-way tables.
+- Pictographs and Bar Graphs: Including simple, stacked, and compound bar graphs.
+- Line Graphs: Particularly for showing trends over time.
+- Pie Charts: For showing proportions of a whole.
+
+## 5.2 Analysing and Interpreting Data
+
+This subsection moves from simply reading data to summarising and making sense of it. It corresponds to the **Analysing Data for Interpretation** progression in the LPAN. At Step 3, this involves describing the shape and important features of a data set, including using the median and range to compare samples [9]. Key skills for learners include:
+
+- **Measures of Average (Central Tendency):**
+    - **Mean:** Calculating the arithmetic average and understanding that it can be skewed by unusually high or low values (outliers).
+    - **Median:** Finding the middle value in an ordered set and understanding that it is often a better representation of the 'typical' value in skewed data.
+    - **Mode:** Identifying the most frequent value.
+- **Measure of Spread:**
+    - **Range:** Calculating the difference between the highest and lowest values to get a simple measure of how spread out the data is.
+- **Interpreting the 'Shape' of Data:** Describing where data points are clustered, identifying any gaps, and noting any outliers.
+
+## 5.3 Critically Evaluating Statistical Claims
+
+This is the pinnacle of this content area and a vital life skill. It requires learners to act as discerning, critical consumers of information rather than passive recipients. This aligns with the **Interpreting Data to Predict and Conclude** progression in the LPAN, which at Step 2 involves drawing conclusions based on evidence and acknowledging uncertainty [9]. Teaching should be based on real media articles, advertisements, graphs from government reports, and workplace documents. Learners should be taught to ask critical questions:
+
+- **Source and Bias:** Who collected this data and why? Could they have a reason to present it in a certain way?
+- **Sample Size:** How many people were surveyed? Is the sample large enough to be meaningful?
+- **Presentation:** Is the graph misleading? (e.g., does the vertical axis start at zero? Are the scales appropriate?).
+- **Causation vs. Correlation:** Does the data show that one thing causes another, or just that they are related?
+- **Clarity of Claims:** When an advertisement says "8 out of 10 people prefer Brand X," what does that actually mean? Who were these people? What were they comparing it to?
+
+This critical lens empowers adults to make informed decisions about their health, finances, and civic life, moving them from being passive consumers of data to active and critical participants in a data-rich society.
+
+```{r table2-5, echo=FALSE}
+stats_data <- data.frame(
+  `Problem Description` = c(
+    "A news website shows a line graph of the average house price in a city over the last 10 years. What was the approximate price in 2015? In which year was the price highest? Describe the overall trend shown in the graph.",
+    "The weekly wages of seven employees at a small business are: $820, $850, $850, $910, $940, $980, $2500. Calculate the mean, median, and mode of the wages. Which 'average' do you think best represents a typical wage at this company? Why?",
+    "An advertisement for a new diet pill claims \"Users lost an average of 5kg in the first month!\" What questions should you ask before you believe this claim?",
+    "A company's health and safety report includes a pie chart showing the causes of workplace accidents last year (e.g., Slips/Trips, Manual Handling, Machinery). What was the most common cause of accidents? If there were 80 accidents in total, how many were due to manual handling if its sector is 25% of the chart?",
+    "You are shown two bar graphs representing the same data on monthly sales, but one has a vertical axis from 0 to 100, and the other has a vertical axis from 80 to 100. How does the choice of axis change the visual impression of the data? Which graph might the sales manager use to motivate the team?"
+  ),
+  Context = c("Media / Personal Finance", "Workplace", "Health / Media Literacy", "Workplace", "Workplace / Media Literacy"),
+  `Key Skills` = c("Reading a line graph, Identifying trends", "Calculating mean, median, mode; Interpretation", "Critical evaluation of statistical claims", "Reading a pie chart, Calculating percentage of an amount", "Interpreting bar graphs, Identifying misleading representations"),
+  `Critical Evaluation Focus` = c(
+    "Interpreting a time-series graph to understand long-term change.",
+    "Understanding the effect of an outlier (the $2500 wage) on the mean versus the median, and justifying the choice of the most appropriate measure.",
+    "Questioning sample size, control groups, how the 'average' was calculated (mean or median), and potential for bias.",
+    "Extracting information from a proportional representation and using it for further calculation.",
+    "Understanding how visual presentation can distort the perception of data and the intent behind such choices."
+  ),
+  check.names = FALSE
+)
+kable(stats_data, caption = "Table 2.5: Contextualised Problems for Statistics and Data")
+```
+
+---
+
+# Section 6: Core Content Area: Elements of Chance (Probability)
+
+This section addresses the final Content Idea from the Numeracy Learning Matrix: **"Use probability to interpret situations that involve elements of chance"** [7]. This domain focuses on developing an understanding of likelihood and risk, which are key concepts for navigating an uncertain world. It maps to the **Probability** progression within the LPAN's "Reason Statistically" strand [9]. The primary goal for adult learners is not to master complex probability theory but to demystify the language of chance and apply basic probabilistic reasoning to everyday situations. This helps in making more informed decisions, whether it's about personal health, finances, or simple recreational activities.
+
+## 6.1 Describing and Quantifying Likelihood
+
+This foundational skill involves being able to express the likelihood of an event happening, both qualitatively and quantitatively. It aligns with Step 2 of the LPAN Probability progression, which involves using fractions to express probability and words to describe likelihood [9].
+
+- **Language of Chance:** Learners should be comfortable using the spectrum of probability language, from "impossible" and "certain" at the extremes, to intermediate terms like "unlikely," "even chance," and "likely."
+- **Numerical Probability:** Learners should understand that probability can be represented as a number between 0 (impossible) and 1 (certain). This can be expressed as:
+    - A **fraction:** e.g., the chance of rolling a 4 on a standard six-sided die is $\frac{1}{6}$.
+    - A **decimal:** e.g., $\frac{1}{6} \approx 0.167$.
+    - A **percentage:** e.g., $\frac{1}{6} \approx 16.7\%$. Learners need to be able to convert between these forms and understand that they represent the same value.
+
+## 6.2 Calculating and Interpreting Probabilities in Real-World Contexts
+
+This involves applying the principles of probability to practical scenarios. This aligns with Step 3 of the LPAN Probability progression, which includes using relative frequency and comparing trial results with model expectations [9].
+
+- **Theoretical Probability:** This is the calculation of probability based on the logical possibilities of a situation. The focus should be on simple, single-stage events. For example, calculating the probability of drawing a specific card from a deck or winning a simple raffle. The formula to teach is: $P(\text{event}) = \frac{\text{Number of favourable outcomes}}{\text{Total number of possible outcomes}}$
+- **Experimental Probability (Relative Frequency):** This is an estimate of probability based on the results of an experiment or observation. For example, if a drawing pin is tossed 100 times and lands point up 42 times, the experimental probability of it landing point up is $\frac{42}{100}$ or 42%.
+- **Interpreting Probabilistic Statements:** This is a crucial skill for adults. It involves making sense of statements they encounter in daily life, such as:
+    - **Weather Forecasts:** Understanding that a "30% chance of rain" does not mean it will rain for 30% of the day, but that in 100 similar situations, it would be expected to rain in 30 of them.
+    - **Health Risks:** Interpreting a statement like "smokers are 10 times more likely to develop lung cancer."
+    - **Games of Chance:** Understanding the odds in lotteries or other games to make informed decisions about participation.
+
+```{r table2-6, echo=FALSE}
+chance_data <- data.frame(
+  `Problem Description` = c(
+    "A community group is running a raffle with 200 tickets. If you buy 5 tickets, what is your probability of winning the single prize? Express your answer as a fraction, a decimal, and a percentage.",
+    "The weather forecast states there is an 80% chance of rain tomorrow. Should you cancel your plans for an outdoor picnic? Explain your reasoning.",
+    "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. What is the probability of pulling out a blue marble without looking?",
+    "In a workplace of 150 people, a survey finds that 90 people drink coffee regularly. What is the experimental probability that a randomly chosen person in this workplace is a coffee drinker?",
+    "A Lotto ticket requires you to pick 6 numbers from 40. Without doing the full calculation, explain in your own words why the probability of winning is extremely low."
+  ),
+  Context = c("Community / Everyday Life", "Everyday Life", "Puzzles / Games", "Workplace", "Games of Chance"),
+  `Key Skills` = c("Calculating theoretical probability, Converting between number forms", "Interpreting a percentage probability", "Calculating theoretical probability", "Calculating experimental probability (relative frequency)", "Conceptual understanding of probability"),
+  `Probabilistic Concept` = c(
+    "Simple, single-stage probability.",
+    "Understanding that high probability implies likelihood, not certainty, and making a risk-based decision.",
+    "Calculating probability from a set of discrete items.",
+    "Finding probability from observed data.",
+    "Articulating why the number of possible combinations is vast, leading to a very small probability for any single combination."
+  ),
+  check.names = FALSE
+)
+kable(chance_data, caption = "Table 2.6: Contextualised Problems for Elements of Chance")
+```
+
+---
+
+# Section 7: Application and Synthesis: Designing Effective Adult Numeracy Units
+
+Translating the content framework outlined in the previous sections into effective teaching requires a pedagogical approach that is specifically tailored to adult learners. This final section provides actionable guidance on programme design, classroom strategy, and assessment preparation. The modern adult numeracy tutor must fulfil a dual role: they are both a developmental educator, skilled in building confidence and filling foundational gaps, and a pragmatic assessment coach, strategically preparing learners for the high-stakes NCEA Common Assessment Activity (CAA). An effective programme successfully balances these two responsibilities.
+
+## 7.1 The Embedded Learning Model: Making it Real
+
+The NCEA numeracy standard's insistence on "everyday situations" is not just a recommendation; it is a pedagogical directive. The most successful adult numeracy programmes are those that embed the teaching and learning of skills into contexts that are immediately meaningful to the learners [10]. This approach improves retention, motivation, and the ability to transfer skills to life and work [12].
+
+- **Mapping Vocational Demands:** For programmes linked to a specific trade or vocation (e.g., automotive, construction, healthcare), the first step is to collaborate with the vocational tutors. This involves analysing the vocational course materials and job tasks to identify the inherent numeracy demands [10]. For example, a carpentry course will be rich in measurement, geometry, and ratio calculations. A business course will require skills in percentages, data analysis, and interpreting financial documents. This mapping process generates a list of authentic tasks that can form the basis of numeracy lessons.
+- **Life Skills Contexts:** For general numeracy courses, the context is the learner's life outside the classroom. Units can be themed around practical life domains such as Personal Finance (budgeting, loans, savings), Health and Nutrition (interpreting food labels, understanding medical statistics), or DIY and Home Management (gardening, renovations, cooking).
+
+## 7.2 Scaffolding for the Adult Learner: Bridging the Confidence Gap
+
+Many adult learners return to education with negative prior experiences and significant anxiety surrounding mathematics. Creating a safe, supportive, and confidence-building learning environment is a prerequisite for any new learning to occur [11].
+
+- **Diagnostic Assessment as a Starting Point:** The **Literacy and Numeracy for Adults Assessment Tool (LNAAT)** is the primary instrument for identifying a learner's specific strengths and needs [11]. However, its implementation must be handled with care. Tutors should frame it as a diagnostic tool to help with planning, not a "test" that can be passed or failed. Using the "Heads Up" learner messages as a guide—explaining the purpose, ensuring confidentiality, and alleviating anxiety—is crucial for a positive start [20]. The results provide a clear map of where each learner sits on the LPAN, allowing the tutor to differentiate instruction and target gaps effectively.
+- **Building on Prior Knowledge:** Adults, unlike children, bring a wealth of life experience to the classroom. This experience is a valuable resource. A learner who struggles with formal fraction calculations may have a highly effective, intuitive strategy for sharing a pizza among friends. Effective teaching acknowledges and validates these existing strategies as a starting point, before introducing more formal or efficient methods.
+- **Creating a Mana-Enhancing Classroom:** The learning environment must be one where learners feel safe to ask questions, make mistakes, and share their thinking without fear of judgment. This involves:
+    - Promoting collaborative work and peer discussion.
+    - Valuing different methods for solving the same problem.
+    - Focusing on progress and effort rather than just correct answers.
+    - Using language that is positive and encouraging.
+
+## 7.3 Preparing for the CAA: Ethical "Teaching to the Test"
+
+While the pedagogy should be learner-centred, the reality is that learners must pass the NCEA Common Assessment Activity (CAA) to gain their 10 credits. Therefore, explicit preparation for the assessment is an ethical responsibility of the tutor. This does not mean rote-learning answers, but rather familiarising learners with the assessment's format and demands to reduce anxiety and allow them to demonstrate their true competence.
+
+- **Familiarisation with the Format:** The CAA is a digital-first assessment with a mix of multiple-choice and short-answer questions, designed to be completed in about 60 minutes (though extra time is allowed) [5]. Tutors should use the past assessment papers and online practice tools provided by NZQA to ensure learners are comfortable with the online environment, the question styles, and the available tools (e.g., an on-screen calculator) [14].
+- **Formative Assessment Mimicking the CAA:** Classroom activities and low-stakes formative assessments should be designed to mirror the CAA format. This builds cognitive stamina and provides practice in responding to the specific types of questions they will encounter.
+- **Focus on the Process Ideas:** The most effective preparation involves consistently integrating the "Formulate, Use, Explain" process ideas into all teaching. Learners who are regularly asked to explain their methods, justify their answers, and critique information are being perfectly prepared for an assessment that values these higher-order thinking skills.
+
+## 7.4 Sample Unit Outlines
+
+The following outlines demonstrate how the content areas can be bundled into thematic units that are relevant to adult learners.
+
+### Unit 1 Example: Numeracy for Personal Finance
+
+- **Theme:** Managing your money effectively.
+- **Content Areas Integrated:**
+    - **Operations on Numbers:** Calculating with decimals (income, expenses), percentages (GST, interest rates, Kiwisaver contributions), and fractions (splitting bills).
+    - **Mathematical Relationships:** Using formulas for simple budgets, understanding interest rate calculations (rates), and analysing mobile phone plans (patterns).
+    - **Statistics and Data:** Interpreting graphs from media about inflation or house prices, analysing personal bank statements to find average spending.
+    - **Elements of Chance:** Understanding risk and reward in different investment options (e.g., term deposits vs. shares).
+- **Summative Task:** Learners create a personal weekly or monthly budget based on their own (or a provided) financial scenario, and write a short explanation justifying their financial decisions.
+
+### Unit 2 Example: Numeracy for a Trade Apprenticeship (e.g., Building)
+
+- **Theme:** The mathematics of the building site.
+- **Content Areas Integrated:**
+    - **Measurement:** High-precision measurement of lengths, calculating perimeter, area (for materials like Gib board or paint), and volume (for concrete or soil). Unit conversions (mm, m, m², m³).
+    - **Space, Shape, Location:** Reading and interpreting building plans and site diagrams, understanding 2D representations of 3D structures.
+    - **Mathematical Relationships:** Using ratios for mixing materials like concrete or mortar, using formulas like Pythagoras' theorem to check for right angles.
+    - **Operations on Numbers:** Calculating material costs, including GST and potential wastage.
+- **Summative Task:** Given a simple plan for a deck or a small shed, learners calculate the quantities of all materials needed (posts, timber, concrete, screws, paint) and produce a cost estimate.
+
+---
+
+# Conclusion
+
+The NCEA Level 1 Numeracy co-requisite represents a modern, robust, and challenging standard for adult learners. An analysis of the governing frameworks reveals that success is built upon a triad of principles: the integration of NZQA's assessment standards with the TEC's pedagogical progressions; a consistent focus on the cognitive processes of formulating, using, and explaining; and the mandatory embedding of all learning within authentic, real-world contexts.
+
+For the adult education practitioner, this requires a shift away from a purely computational curriculum towards one that develops flexible, strategic, and critical mathematical thinking. The Learning Progressions for Adult Numeracy, particularly the descriptors for Step 5, provide the essential, detailed guide for the specific skills and strategies that must be taught. By using these progressions to inform the teaching of the seven Content Ideas from the NCEA Learning Matrix, tutors can create a curriculum that is both aligned with the national standard and responsive to the unique needs of adult learners.
+
+Ultimately, the tutor's role is a complex one: to build foundational skills, to foster confidence in learners who may have experienced past failure, and to strategically prepare them for a formal, high-stakes assessment. By embracing a systems-based approach that synthesises the 'what' of NZQA with the 'how' of the TEC, educators can empower adult learners not only to achieve the 10 credits they need for their NCEA qualification but also to gain the authentic, applicable numeracy skills essential for full participation in work, community, and life in 21st century Aotearoa New Zealand.
+
+---
+
+```{refernences child = "ncea_references.Rmd", include = "TRUE", eval = "TRUE"}
+# Works Cited
+
+1.  Standard 32406 - NZQA. (n.d.). Retrieved August 5, 2025, from https://www.nzqa.govt.nz/ncea/assessment/view-detailed.do?standardNumber=32406
+2.  Standards approved for NCEA Co-requisite during the transition period (2024-2027). (n.d.). Retrieved August 5, 2025, from https://ncea.education.govt.nz/standards-approved-ncea-co-requisite-during-transition-period-2024-2027
+3.  32406 Apply mathematics and statistics in a range of everyday situations - NZQA. (n.d.). Retrieved August 5, 2025, from https://www.nzqa.govt.nz/nqfdocs/units/pdf/32406.pdf
+4.  NCEA levels and certificates - NZQA. (n.d.). Retrieved August 5, 2025, from https://www2.nzqa.govt.nz/ncea/about-ncea/ncea-levels-and-certificates/
+5.  Numeracy 2025 - NZQA. (n.d.). Retrieved August 5, 2025, from https://www2.nzqa.govt.nz/assets/NCEA/LitNum/2025-LN-Assessment-specifications/LN-NUME-spc-2025.pdf
+6.  Assessment Specifications for 2023 Literacy and Numeracy Transitional Year - NZQA. (n.d.). Retrieved August 5, 2025, from https://www2.nzqa.govt.nz/assets/NCEA/LitNum/Assessment-resources/32406/Num-32406-Assessment-Specifications-2023.pdf
+7.  Numeracy - Learning - NCEA Education. (n.d.). Retrieved August 5, 2025, from https://ncea.education.govt.nz/literacy-and-numeracy/numeracy/learning
+8.  Numeracy Learning Matrix - AWS. (n.d.). Retrieved August 5, 2025, from https://ncea-live-3-storagestack-53q-assetstorages3bucket-2o21xte0r81u.s3.amazonaws.com/s3fs-public/2022-05/Numeracy%20Learning%20Matrix%20-%20updated%202022%20%28A4%29_0.pdf?VersionId=aL1S86bAQ6.KPKJzYctcrctbPt1JFPA7
+9.  LEARNING PROGRESSIONS FOR ADULT NUMERACY. (n.d.). Retrieved August 5, 2025, from https://ako.ac.nz/assets/Knowledge-centre/ALNACC-Resources/Learning-progressions/Learning-progressions-numeracy.pdf
+10. 32978.doc - NZQA. (n.d.). Retrieved August 5, 2025, from https://www.nzqa.govt.nz/nqfdocs/units/doc/32978.doc
+11. Guidelines for using the Literacy and Numeracy for Adults ... (n.d.). Retrieved August 5, 2025, from https://www.tec.govt.nz/assets/Forms-templates-and-guides/Guidelines-for-using-the-Literacy-and-Numeracy-for-Adults-Assessment-Tool-v2.pdf
+12. Guidelines for using the Literacy and Numeracy for Adults Assessment Tool - Tertiary Education Commission. (n.d.). Retrieved August 5, 2025, from https://www.tec.govt.nz/assets/Forms-templates-and-guides/0869ebeb24/Guidelines-for-using-the-Literacy-and-Numeracy-for-Adults-Assessment-Tool.pdf
+13. Literacy and Numeracy for Adults Assessment Tool | New Zealand Council for Educational Research. (n.d.). Retrieved August 5, 2025, from https://www.nzcer.org.nz/research/projects/literacy-and-numeracy-adults-assessment-tool
+14. NCEA Numeracy - NZQA. (n.d.). Retrieved August 5, 2025, from https://www2.nzqa.govt.nz/ncea/subjects/select-subject/numeracy/
+15. Exemplar for Unit Standard Numeracy Level 1 - NZQA. (n.d.). Retrieved August 5, 2025, from https://www2.nzqa.govt.nz/assets/NCEA/LitNum/266-Standards/Exemplars/26623/26623-EXP.pdf
+16. The Learning Progressions - Literacy and Numeracy for Adults Assessment Tool. (n.d.). Retrieved August 5, 2025, from https://assessforadults.nzcer.org.nz/support/solutions/articles/4000125030-the-learning-progressions
+17. Level 1 Mathematics and Statistics 2025 - NZQA. (n.d.). Retrieved August 5, 2025, from https://www.nzqa.govt.nz/nqfdocs/ncea-resource/specifications/2025/91947-spc-2025.pdf
+18. Adult Literacy and Numeracy: An Overview of the Evidence - The Hub. (n.d.). Retrieved August 5, 2025, from https://thehub.sia.govt.nz/assets/documents/Adult-Literacy-and-Numeracy-An-Overview.pdf
+19. Teaching Adults to Make Sense of Number to Solve Problems ... (n.d.). Retrieved August 5, 2025, from https://ako.ac.nz/assets/Knowledge-centre/ALNACC-Resources/Learning-progressions/Learning-progressions-make-sense-of-number.pdf
+20. Assessment Tool - NET. (n.d.). Retrieved August 5, 2025, from https://padletuploads.blob.core.windows.net/aws/116189411/a856ecbfc38a51cef7465779837d856ce6a69e82/428ba0d1d3eceef0d3e4846d3bf20d3b.pdf
+21. Literacy and Numeracy - NZQA. (n.d.). Retrieved August 5, 2025, from https://www2.nzqa.govt.nz/ncea/subjects/litnum/
+22. Literacy and Numeracy Assessment Information - NCEA Education. (n.d.). Retrieved August 5, 2025, from https://ncea.education.govt.nz/literacy-and-numeracy-assessment-information

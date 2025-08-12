@@ -1,0 +1,15 @@
+---
+title: "Desmos Integration Numeracy"
+author: "Southern Clarity"
+date: "`r Sys.Date()`"
+output: html_document
+--- 
+
+```{r setup, include=FALSE}     
+library(knitr)
+```
+
+#### A cool interactive graph
+
+<iframe data-external="1" src="https://www.desmos.com/calculator/8wiixd9ks4?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+

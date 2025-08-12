@@ -1,0 +1,67 @@
+---
+title: "Numeracy Project Plan"
+author: "Anthony Davidson"
+date: "`r Sys.Date()`"
+output: html_document
+toc: true
+toc_depth: 2
+---
+
+Of course. Here is a project management plan for creating an AI chatbot to support NCEA Level 1 Numeracy learning, specifically tailored for the building industry.
+
+### **Project Goal**
+
+To develop, test, and deploy a specialized AI chatbot that provides accessible, on-demand numeracy support for building industry apprentices, helping them achieve the NCEA Level 1 Numeracy co-requisite (Unit Standard 32406) and enhancing their on-the-job mathematical competence.
+
+***
+
+### **Phase 1: Discovery and Content Strategy (4 Weeks)**
+
+This initial phase focuses on deeply understanding the user and defining the educational content.
+
+* **Stakeholder Workshops**: Engage with building apprentices, vocational tutors from organizations like BCITO, and industry employers to identify key numeracy challenges and desired learning outcomes.
+* **Content Analysis**:
+    * **Curriculum Mapping**: A subject matter expert will analyze the "NCEA Level 1 Numeracy Breakdown" document to map the seven core content areas to specific, common tasks in the building trade. For example:
+        * **Measurement**: Calculating quantities of concrete (volume), areas for painting, and lengths of timber.
+        * **Space & Shape**: Interpreting blueprints and site plans.
+        * **Ratios & Proportions**: Mixing concrete and other materials.
+    * **Problem Sourcing**: Gather authentic, real-world numeracy problems directly from building sites and apprentice training materials.
+* **Persona Development**: Create detailed user personas for different types of building apprentices (e.g., new apprentice, experienced worker upskilling) to guide the chatbot's tone, language, and user experience.
+
+***
+
+### **Phase 2: Design and Prototyping (6 Weeks)**
+
+This phase focuses on designing the user experience and building a functional prototype.
+
+* **Conversation Flow Design**: Map out the primary conversation paths. The chatbot must be able to:
+    * Respond to direct questions (e.g., "How do I calculate the area of a right-angle triangle?").
+    * Offer topic-based learning modules (e.g., "Let's learn about measurement").
+    * Generate contextualized practice problems (e.g., "You need to order concrete for a slab that is 3m by 4m and 100mm deep. How much do you need?").
+* **UI/UX Prototyping**: Develop a low-fidelity, clickable prototype of the chatbot interface. The design will prioritize mobile-first access, as apprentices are often on-site.
+* **Technical Specification**: Define the AI model, technology stack, and integration points (e.g., potential integration with an industry training organization's learning portal).
+
+***
+
+### **Phase 3: Development and Testing (12 Weeks)**
+
+This is the core development phase where the chatbot is built and refined.
+
+* **Agile Development Sprints**:
+    * **Sprint 1-4 (Content Integration)**: Develop the chatbot's knowledge base, focusing on one or two numeracy content areas per sprint. The development team will work closely with the subject matter expert to ensure accuracy.
+    * **Sprint 5-8 (Functionality Build)**: Implement core features like the practice problem generator, feedback mechanisms, and progress tracking.
+    * **Sprint 9-12 (User Testing & Refinement)**: Conduct rigorous user acceptance testing (UAT) with a pilot group of building apprentices. Gather feedback on usability, content relevance, and overall effectiveness.
+* **Quality Assurance**: Continuously test for accuracy, usability, and robustness across all development stages.
+
+***
+
+### **Phase 4: Deployment and Evaluation (4 Weeks)**
+
+This final phase involves launching the chatbot and measuring its impact.
+
+* **Deployment**: Launch the chatbot, making it available to the target audience through the chosen platform (e.g., web app, integrated tool).
+* **Onboarding & Support**: Provide clear instructions and support materials for both apprentices and tutors on how to use the chatbot effectively.
+* **Performance Monitoring**:
+    * **User Analytics**: Track key metrics such as user engagement, session duration, and most frequently asked questions.
+    * **Feedback Loop**: Implement a simple, in-chatbot feedback mechanism for users to report issues or suggest improvements.
+    * **Impact Assessment**: After a set period (e.g., 3-6 months), survey users and analyze NCEA pass rates to assess the chatbot's impact on learning outcomes.
