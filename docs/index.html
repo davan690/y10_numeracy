@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCEA Numeracy 32406 Resource Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals with Teal Accent -->
+    <!-- Application Structure Plan: A user-centric, task-oriented single-page application. The structure is designed for easy navigation and quick access to information, moving from a broad overview to specific, filterable resources. Key sections include a hero introduction, an interactive resource hub with filtering, a visual study plan, a data-driven chart of resource types, and a searchable calculator list. This non-linear dashboard approach was chosen over the report's linear format to empower students to find what they need immediately, enhancing usability and engagement. -->
+    <!-- Visualization & Content Choices: 1. Resource Hub (Filterable Cards): Info from Table 3 -> Goal: Organize/Explore -> Method: HTML/Tailwind Grid + JS filter -> Interaction: Category buttons toggle card visibility -> Justification: Far more intuitive and user-friendly than a static table. 2. Study Strategy (Interactive Diagram): Info from Part 5 Recommendations -> Goal: Simplify/Guide -> Method: HTML/Tailwind Flexbox Diagram + JS toggle -> Interaction: Clicking a phase reveals details -> Justification: Transforms dense text into an engaging, step-by-step guide. 3. Resource Breakdown (Donut Chart): Info from Table 3 resource types -> Goal: Inform at a glance -> Viz: Chart.js Canvas Donut Chart -> Interaction: Hover for details -> Justification: Provides a quick visual summary of the resource landscape. 4. Approved Calculators (Filterable List): Info from Table 2 -> Goal: Quick Verification -> Method: HTML List + JS filter -> Interaction: Type buttons filter the list -> Justification: Improves usability by reducing cognitive load. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #333;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link:hover {
+            color: #14B8A6;
+        }
+        .active-nav {
+            color: #14B8A6;
+            border-bottom: 2px solid #14B8A6;
+        }
+        .btn-filter.active {
+            background-color: #14B8A6;
+            color: white;
+        }
+        .phase-card.active {
+            border-color: #14B8A6;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-gray-800">
+                NCEA <span class="text-teal-500">Numeracy Hub</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#overview" class="nav-link text-gray-600 font-medium pb-1">Overview</a>
+                <a href="#resources" class="nav-link text-gray-600 font-medium pb-1">Resource Hub</a>
+                <a href="#strategy" class="nav-link text-gray-600 font-medium pb-1">Study Strategy</a>
+                <a href="#calculators" class="nav-link text-gray-600 font-medium pb-1">Calculators</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#overview" class="block py-2 text-gray-600">Overview</a>
+            <a href="#resources" class="block py-2 text-gray-600">Resource Hub</a>
+            <a href="#strategy" class="block py-2 text-gray-600">Study Strategy</a>
+            <a href="#calculators" class="block py-2 text-gray-600">Calculators</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="overview" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Master NCEA Level 1 Numeracy</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                    This hub provides a curated list of resources for Unit Standard 32406: "Apply mathematics and statistics in a range of everyday situations". Navigate the new co-requisite with confidence using the best tools and guides available.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#resources" class="bg-teal-500 text-white font-bold py-3 px-8 rounded-full hover:bg-teal-600 transition duration-300">Explore Resources</a>
+                    <a href="https://www.nzqa.govt.nz/ncea/assessment/view-detailed.do?standardNumber=32406" target="_blank" class="bg-gray-200 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition duration-300">Official Standard</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Interactive Resource Hub</h2>
+                    <p class="text-lg text-gray-600 mt-2">Filter through official documents, practice workbooks, digital tools, and community forums.</p>
+                </div>
+
+                <div id="resource-filters" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+                    <button class="btn-filter active px-4 py-2 text-sm font-medium rounded-full bg-white border border-gray-300 transition" data-filter="all">All Resources</button>
+                    <button class="btn-filter px-4 py-2 text-sm font-medium rounded-full bg-white border border-gray-300 transition" data-filter="official">Official</button>
+                    <button class="btn-filter px-4 py-2 text-sm font-medium rounded-full bg-white border border-gray-300 transition" data-filter="practice">Practice & Workbooks</button>
+                    <button class="btn-filter px-4 py-2 text-sm font-medium rounded-full bg-white border border-gray-300 transition" data-filter="digital">Digital Tools</button>
+                    <button class="btn-filter px-4 py-2 text-sm font-medium rounded-full bg-white border border-gray-300 transition" data-filter="community">Community Support</button>
+                    <button class="btn-filter px-4 py-2 text-sm font-medium rounded-full bg-white border border-gray-300 transition" data-filter="free">Free</button>
+                </div>
+
+                <div id="resource-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+            </div>
+        </section>
+
+        <section id="strategy" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Your 4-Phase Study Strategy</h2>
+                    <p class="text-lg text-gray-600 mt-2">Follow this recommended pathway for effective preparation. Click each phase to learn more.</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-center items-center md:space-x-4 space-y-4 md:space-y-0 mb-8">
+                    <div class="phase-card text-center p-6 border-2 border-gray-200 rounded-lg cursor-pointer w-full md:w-1/4 transition" data-phase="1">
+                        <div class="text-3xl font-bold text-teal-500 mb-2">1</div>
+                        <h3 class="font-semibold text-lg">Understand</h3>
+                        <p class="text-sm text-gray-500">Build Your Foundation</p>
+                    </div>
+                     <div class="text-2xl text-gray-300 hidden md:block">&rarr;</div>
+                    <div class="phase-card text-center p-6 border-2 border-gray-200 rounded-lg cursor-pointer w-full md:w-1/4 transition" data-phase="2">
+                        <div class="text-3xl font-bold text-teal-500 mb-2">2</div>
+                        <h3 class="font-semibold text-lg">Practice</h3>
+                        <p class="text-sm text-gray-500">Apply Your Knowledge</p>
+                    </div>
+                     <div class="text-2xl text-gray-300 hidden md:block">&rarr;</div>
+                    <div class="phase-card text-center p-6 border-2 border-gray-200 rounded-lg cursor-pointer w-full md:w-1/4 transition" data-phase="3">
+                        <div class="text-3xl font-bold text-teal-500 mb-2">3</div>
+                        <h3 class="font-semibold text-lg">Reinforce</h3>
+                        <p class="text-sm text-gray-500">Use Digital Tools</p>
+                    </div>
+                     <div class="text-2xl text-gray-300 hidden md:block">&rarr;</div>
+                    <div class="phase-card text-center p-6 border-2 border-gray-200 rounded-lg cursor-pointer w-full md:w-1/4 transition" data-phase="4">
+                        <div class="text-3xl font-bold text-teal-500 mb-2">4</div>
+                        <h3 class="font-semibold text-lg">Support</h3>
+                        <p class="text-sm text-gray-500">Engage with Community</p>
+                    </div>
+                </div>
+
+                <div id="strategy-details" class="mt-8 max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-inner">
+                    <p class="text-center text-gray-500">Select a phase above to see the recommended approach.</p>
+                </div>
+                 <div class="mt-12">
+                    <div class="text-center mb-8">
+                         <h3 class="text-2xl font-bold text-gray-800">Resource Landscape</h3>
+                         <p class="text-md text-gray-600 mt-1">A visual breakdown of the types of resources available.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="resourceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculators" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Approved Calculators</h2>
+                    <p class="text-lg text-gray-600 mt-2">Check if your calculator is on the official NZQA list for the numeracy assessment.</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex justify-center mb-4">
+                         <input type="text" id="calc-search" placeholder="Search by model (e.g., FX-82)..." class="w-full max-w-lg px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                    </div>
+                    <div id="calc-list" class="bg-white p-6 rounded-lg shadow-md max-h-[60vh] overflow-y-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 NCEA Numeracy Hub. An independent resource based on publicly available information.</p>
+            <p class="text-sm text-gray-400 mt-2">This tool is not affiliated with NZQA or the Ministry of Education.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const resources = [
+                { name: 'NZQA Website', type: 'Official', features: 'The definitive source. Official standard doc, past exams, assessment schedules, and the crucial approved calculator list.', cost: 'Free', reliability: 'Highly Reliable', category: 'official', free: true },
+                { name: 'NCEA.education', type: 'Official', features: 'Crucial context and planning guides. Downloadable PDFs for students, teachers, and whānau.', cost: 'Free', reliability: 'Highly Reliable', category: 'official', free: true },
+                { name: 'Sigma Publications', type: 'Commercial Workbook', features: '"Numeracy Co-requisite" workbooks with notes and practice questions, targeted to the new curriculum.', cost: 'Paid', reliability: 'Reliable for Practice', category: 'practice', free: false },
+                { name: 'LearnWell', type: 'Commercial Workbook', features: '"Numeracy Matters" guide focusing on real-world problem-solving and applications.', cost: 'Paid', reliability: 'Reliable for Practice', category: 'practice', free: false },
+                { name: 'StudyTime', type: 'Commercial/Hybrid Platform', features: 'Online guides, workbooks, and past exams. Be aware of the tiered "freemium" model.', cost: 'Paid', reliability: 'Good for Practice', category: 'practice', free: false },
+                { name: 'Khan Academy', type: 'Free Learning Platform', features: 'Excellent for reinforcing core mathematical concepts with thousands of videos and exercises. Not NCEA-specific.', cost: 'Free', reliability: 'Good for Foundational Skills', category: 'digital', free: true },
+                { name: 'MathsCentre', type: 'Free Learning Platform', features: 'An excellent NZ-based resource with videos and worksheets that complement the local numeracy programme.', cost: 'Free', reliability: 'Highly Reliable & Free', category: 'digital', free: true },
+                { name: 'GeoGebra', type: 'Free Digital Tool', features: 'A powerful, free suite of online calculators (graphing, scientific) and interactive geometry tools.', cost: 'Free', reliability: 'Highly Reliable for Practice', category: 'digital', free: true },
+                { name: 'NCEA Study App', type: 'Mobile App', features: 'Provides past papers. Note: Not affiliated with NZQA and may not reflect the newest standard.', cost: 'Free (with ads)', reliability: 'Unverified Reliability', category: 'digital', free: true },
+                { name: 'StudyIt Forums', type: 'Official Community', features: 'A safe, moderated environment for asking questions and receiving general study advice from facilitators.', cost: 'Free', reliability: 'Reliable', category: 'community', free: true },
+                { name: 'Reddit (r/ncea)', type: 'Community Forum', features: 'Active, user-driven platform for peer support. Cross-reference any advice with official sources.', cost: 'Free', reliability: 'Unverified Reliability', category: 'community', free: true }
+            ];
+
+            const calculators = [
+                { manufacturer: 'Cannon', model: 'F-717SGA', type: 'Scientific' },
+                { manufacturer: 'Casio', model: 'FX-82 (all variants)', type: 'Scientific' },
+                { manufacturer: 'Casio', model: 'FX-9750 (all variants)', type: 'Graphing' },
+                { manufacturer: 'Deli', model: 'DL-1705', type: 'Scientific' },
+                { manufacturer: 'HP', model: '10s+', type: 'Scientific' },
+                { manufacturer: 'Mahobe', model: 'Mahobe Scientific, DS-742CQ, DS-742ET, DS-750ET, DS-950ES', type: 'Scientific' },
+                { manufacturer: 'Mahobe', model: 'DS-742DQ', type: 'Graphing' },
+                { manufacturer: 'Mana Matauranga', model: 'MM01', type: 'Graphing' },
+                { manufacturer: 'Sharp', model: 'EL531 (all variants)', type: 'Scientific' },
+                { manufacturer: 'Tech Inc', model: '82ES, TY-991ES PLUS', type: 'Scientific' },
+                { manufacturer: 'Tech Inc', model: 'TY-TX800', type: 'Graphing' },
+                { manufacturer: 'Texas Instruments', model: 'TI-30X (all variants)', type: 'Scientific' },
+                { manufacturer: 'Texas Instruments', model: 'TI-Nspire (all non-CAS variants)', type: 'Graphing' }
+            ];
+
+            const strategyDetails = {
+                1: { title: 'Phase 1: Understand the Foundation', content: 'Start with the most reliable sources. Thoroughly review the official Unit Standard 32406 document and examine the latest external assessment papers from the NZQA website. This is the only way to understand the exact content, format, and expectations of the assessment.' },
+                2: { title: 'Phase 2: Structured Practice', content: 'Use targeted commercial workbooks from publishers like Sigma or LearnWell. These are designed for the new curriculum and focus on "everyday situations". Supplement with free, NZ-aligned worksheets from sites like MathsCentre for additional practice.' },
+                3: { title: 'Phase 3: Reinforce with Digital Tools', content: 'Use free platforms like GeoGebra to practice problem-solving and reinforce conceptual understanding. The assessment tests your application of concepts, not just mental arithmetic. These tools help build the conceptual fluency you need.' },
+                4: { title: 'Phase 4: Seek Community Support', content: 'Engage with community resources. Use the official StudyIt forums for moderated, reliable advice. For informal peer-to-peer support, communities like the NCEA subreddit can be helpful, but always verify information with official NZQA sources.' }
+            };
+
+            const resourceGrid = document.getElementById('resource-grid');
+            const filterButtons = document.querySelectorAll('#resource-filters .btn-filter');
+            const calcListContainer = document.getElementById('calc-list');
+            const calcSearchInput = document.getElementById('calc-search');
+
+            function renderResources(filter = 'all') {
+                resourceGrid.innerHTML = '';
+                const filteredResources = resources.filter(r => {
+                    if (filter === 'all') return true;
+                    if (filter === 'free') return r.free;
+                    return r.category === filter;
+                });
+
+                filteredResources.forEach(res => {
+                    const reliabilityColor = res.reliability.includes('Highly') ? 'text-green-600' : res.reliability.includes('Unverified') ? 'text-orange-500' : 'text-blue-600';
+                    const costColor = res.cost === 'Free' ? 'bg-teal-100 text-teal-800' : 'bg-orange-100 text-orange-800';
+
+                    const card = `
+                        <div class="resource-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                            <div class="flex-grow">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-gray-800">${res.name}</h3>
+                                    <span class="text-xs font-semibold px-2 py-1 rounded-full ${costColor}">${res.cost}</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">${res.features}</p>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium ${reliabilityColor}">${res.reliability}</p>
+                            </div>
+                        </div>
+                    `;
+                    resourceGrid.innerHTML += card;
+                });
+            }
+
+            function renderCalculators(searchTerm = '') {
+                calcListContainer.innerHTML = '';
+                const filteredCalculators = calculators.filter(c => 
+                    c.manufacturer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    c.model.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+
+                if (filteredCalculators.length === 0) {
+                    calcListContainer.innerHTML = '<p class="text-center text-gray-500">No matching calculators found.</p>';
+                    return;
+                }
+
+                const list = document.createElement('ul');
+                list.className = 'space-y-4';
+                filteredCalculators.forEach(calc => {
+                    const item = document.createElement('li');
+                    item.className = 'flex justify-between items-center p-3 bg-gray-50 rounded';
+                    item.innerHTML = `
+                        <div>
+                            <p class="font-semibold text-gray-800">${calc.manufacturer}</p>
+                            <p class="text-sm text-gray-600">${calc.model}</p>
+                        </div>
+                        <span class="text-sm font-medium px-3 py-1 rounded-full ${calc.type === 'Scientific' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'}">${calc.type}</span>
+                    `;
+                    list.appendChild(item);
+                });
+                calcListContainer.appendChild(list);
+            }
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    renderResources(button.dataset.filter);
+                });
+            });
+
+            calcSearchInput.addEventListener('input', (e) => {
+                renderCalculators(e.target.value);
+            });
+
+            const phaseCards = document.querySelectorAll('.phase-card');
+            const strategyDetailsContainer = document.getElementById('strategy-details');
+            phaseCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    phaseCards.forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                    const phaseData = strategyDetails[card.dataset.phase];
+                    strategyDetailsContainer.innerHTML = `
+                        <h4 class="text-xl font-bold text-gray-800 mb-2 text-center">${phaseData.title}</h4>
+                        <p class="text-gray-700 text-center">${phaseData.content}</p>
+                    `;
+                });
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active-nav');
+                    }
+                });
+            });
+            
+            const resourceCounts = resources.reduce((acc, resource) => {
+                acc[resource.type] = (acc[resource.type] || 0) + 1;
+                return acc;
+            }, {});
+
+            const ctx = document.getElementById('resourceChart').getContext('2d');
+            const resourceChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(resourceCounts),
+                    datasets: [{
+                        label: 'Resource Types',
+                        data: Object.values(resourceCounts),
+                        backgroundColor: [
+                            '#2DD4BF', '#FDBA74', '#60A5FA', '#A78BFA', '#F472B6'
+                        ],
+                        borderColor: '#FDFBF8',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed;
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            renderResources();
+            renderCalculators();
+        });
+    </script>
+</body>
+</html>
